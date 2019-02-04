@@ -31,9 +31,9 @@ class _ClipperScaffoldState extends State<ClipperScaffold> {
       body: Stack(
         children: <Widget>[
           ClipPath(
-            clipper: MyClipper(),
+            clipper: MyClipper(context),
             child: Container(
-              height: ScreenUtil().setHeight(335),
+              height: ScreenUtil().setHeight(340),
               decoration: BoxDecoration(
                 color: Color(0xff3B2C85),
                 boxShadow: [
