@@ -50,7 +50,12 @@ class _ClipperScaffoldState extends State<ClipperScaffold> {
 
     return Scaffold(
       body: MeltingCard(
-        child: null,
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 100),
+          child: Center(
+            child: Text("Melting card xD"),
+          ),
+        ),
         color: Colors.blue,
         height: 334,
       )

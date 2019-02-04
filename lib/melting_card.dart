@@ -20,6 +20,7 @@ class _MeltingCardState extends State<MeltingCard> {
         clipper: MyClipper(context),
         child: Container(
           height: ScreenUtil().setHeight(widget.height),
+          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: widget.color,
             boxShadow: [
@@ -31,7 +32,7 @@ class _MeltingCardState extends State<MeltingCard> {
               )
             ]
           ),
-          // child: widget.child
+          child: widget.child
         ),
       ),
     );
