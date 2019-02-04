@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_clip_path/melting_card.dart';
 import 'package:learning_clip_path/myclipper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,24 +28,32 @@ class _ClipperScaffoldState extends State<ClipperScaffold> {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 360, height: 640, allowFontScaling: true)..init(context);
 
+    // return Scaffold(
+    //   body: ClipPath(
+    //     clipper: MyClipper(context),
+    //     child: Container(
+    //       height: ScreenUtil().setHeight(340),
+    //       decoration: BoxDecoration(
+    //         color: Color(0xff3B2C85),
+    //         boxShadow: [
+    //           BoxShadow(
+    //             blurRadius: 25,
+    //             offset: Offset(0, 20),
+    //             color: Color(0xfafafa),
+    //             spreadRadius: 200
+    //           )
+    //         ]
+    //       ),
+    //     ),
+    //   ),
+    // );
+
     return Scaffold(
-      body: ClipPath(
-        clipper: MyClipper(context),
-        child: Container(
-          height: ScreenUtil().setHeight(340),
-          decoration: BoxDecoration(
-            color: Color(0xff3B2C85),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 25,
-                offset: Offset(0, 20),
-                color: Color(0xfafafa),
-                spreadRadius: 200
-              )
-            ]
-          ),
-        ),
-      ),
+      body: MeltingCard(
+        child: null,
+        color: Colors.blue,
+        height: 334,
+      )
     );
   }
 }
