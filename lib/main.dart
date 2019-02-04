@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_clip_path/myclipper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
       home: ClipperScaffold(),
       theme: ThemeData(
         accentColor: Colors.blueAccent,
-        brightness: Brightness.dark
+        // brightness: Brightness.dark
       ),
     );
   }
@@ -24,17 +25,26 @@ class ClipperScaffold extends StatefulWidget {
 class _ClipperScaffoldState extends State<ClipperScaffold> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 360, height: 640, allowFontScaling: true)..init(context);
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Learning Clippath"),
-      ),
       body: Stack(
         children: <Widget>[
           ClipPath(
             clipper: MyClipper(),
             child: Container(
-              height: 400,
-              color: Colors.blue,
+              height: ScreenUtil().setHeight(335),
+              decoration: BoxDecoration(
+                color: Color(0xff3B2C85),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 25,
+                    offset: Offset(0, 20),
+                    color: Color(0xfafafa),
+                    spreadRadius: 200
+                  )
+                ]
+              ),
             ),
           )
         ],
