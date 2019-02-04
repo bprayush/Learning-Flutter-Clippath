@@ -11,7 +11,7 @@ class MyClipper extends CustomClipper<Path>{
     ScreenUtil.instance = ScreenUtil(width: 360, height: 640, allowFontScaling: true)..init(_context);
 
     final Path _path = Path();
-    final _height = size.height - 100;
+    final _height = size.height - ScreenUtil().setHeight(100);
     final _width = size.width;
     final _radius = ScreenUtil().setHeight(5);
     final int _barWidth = _width ~/ 14;
