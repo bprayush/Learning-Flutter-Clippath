@@ -3,16 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:learning_clip_path/myclipper.dart';
 
 class MeltingCard extends StatefulWidget {
-  var child;
-  int height;
-  var color;
+  Widget _child;
+  int _height;
+  var _color;
  
   // MeltingCard({this.child, int this.height, this.color});
 
   MeltingCard({var child, @required double height, @required var color}){
-    this.child = child;
-    this.height = height.toInt();
-    this.color = color;
+    this._child = child;
+    this._height = height.toInt();
+    this._color = color;
   }
   
   _MeltingCardState createState() => _MeltingCardState();
@@ -21,26 +21,51 @@ class MeltingCard extends StatefulWidget {
 class _MeltingCardState extends State<MeltingCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-       child: ClipPath(
-        clipper: MyClipper(context),
-        child: Container(
-          height: ScreenUtil().setHeight(widget.height),
-          width: ScreenUtil().width.toDouble(),
-          decoration: BoxDecoration(
-            color: widget.color,
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 25,
-                offset: Offset(0, 20),
-                color: Color(0xfafafa),
-                spreadRadius: 200
-              )
-            ]
+    // return Container(
+    //    child: ClipPath(
+    //     clipper: MyClipper(context),
+    //     child: Container(
+    //       height: ScreenUtil().setHeight(widget._height),
+    //       width: ScreenUtil.screenWidth,
+    //       decoration: BoxDecoration(
+    //         color: widget._color,
+    //       ),
+    //       child: widget._child
+    //     ),
+    //   ),
+    // );
+
+    return Stack(
+      children: <Widget>[
+        Opacity(
+          opacity: 0.2,
+          child: Container(
+            child: ClipPath(
+              clipper: MyClipper(context),
+              child: Container(
+                height: ScreenUtil().setHeight(widget._height + 2),
+                width: ScreenUtil.screenWidth,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+              ),
+            ),
           ),
-          child: widget.child
-        ),
-      ),
+        ), 
+        Container(
+          child: ClipPath(
+            clipper: MyClipper(context),
+            child: Container(
+              height: ScreenUtil().setHeight(widget._height),
+              width: ScreenUtil.screenWidth,
+              decoration: BoxDecoration(
+                color: widget._color,
+              ),
+              child: widget._child
+            ),
+          ),
+        ) 
+      ],
     );
   }
 }

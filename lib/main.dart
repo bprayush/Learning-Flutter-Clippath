@@ -28,36 +28,11 @@ class _ClipperScaffoldState extends State<ClipperScaffold> {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 360, height: 640, allowFontScaling: true)..init(context);
 
-    // return Scaffold(
-    //   body: ClipPath(
-    //     clipper: MyClipper(context),
-    //     child: Container(
-    //       height: ScreenUtil().setHeight(340),
-    //       decoration: BoxDecoration(
-    //         color: Color(0xff3B2C85),
-    //         boxShadow: [
-    //           BoxShadow(
-    //             blurRadius: 25,
-    //             offset: Offset(0, 20),
-    //             color: Color(0xfafafa),
-    //             spreadRadius: 200
-    //           )
-    //         ]
-    //       ),
-    //     ),
-    //   ),
-    // );
-
     return Scaffold(
       body: MeltingCard(
-        child: Padding(
-          padding: EdgeInsets.only(bottom: 100),
-          child: Center(
-            child: Text("Melting card xD"),
-          ),
-        ),
-        color: Colors.blue,
-        height: ScreenUtil().setHeight(400),
+        child: Text("Melting card xD"),
+        color: Color(0xff3B2C85),
+        height: ScreenUtil().setHeight(334),
       )
     );
   }
