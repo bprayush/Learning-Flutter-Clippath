@@ -57,7 +57,7 @@ class _ClipperScaffoldState extends State<ClipperScaffold> {
           ),
         ),
         color: Colors.blue,
-        height: ScreenUtil().setHeight(400).toInt(),
+        height: ScreenUtil().setHeight(400),
       )
     );
   }
